@@ -6,7 +6,8 @@
  http://www.botnroll.com
 
 Description:
-Prints a message on the robot LCD.
+The LED is switched ON and OFF every second. 
+A message is sent to the Serial Monitor accordingly.
 */
 
 #include <BnrOneA.h>   // Bot'n Roll ONE A library
@@ -25,9 +26,12 @@ void setup()
 }
 
 void loop()
-{
-    one.lcd1(" LCD Test OK !! "); // print data on LCD line 1
-    one.lcd2("www.botnroll.com"); // print data on LCD line 2
-    Serial.println("Message sent to LCD!");  // print data on serial monitor.
-    delay(1000);                  // wait 1 second    
+{    
+    one.led(HIGH);             // turn LED ON
+    Serial.println("LED ON");  // print data on serial monitor.
+    delay(1000);               // wait 1 second
+    one.led(LOW);              // turn LED OFF
+    Serial.println("LED OFF"); // print data on serial monitor.
+    delay(1000);               // wait 1 second
 }
+
